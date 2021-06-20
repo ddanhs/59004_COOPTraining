@@ -1,0 +1,28 @@
+Question 1:
+
+Choose any editor as your favorite and list 3 reasons why you like it most. 
+You can write a reason with one paragraph each. 
+Note that you need to describe concretely and concisely, 
+e.g., "I can edit faster" is neither concrete or concise because of the lack of a comparison basis.
+
+Answer 1:
+
+Question 2: 
+Generate several .txt, .bak and .py files.  Then write a shell script to change the .txt file 
+names to new_{old_name}.txt, delete all .bak files and change the names of .py files to 
+long_{old_name}.py or short_{old_name}.py depending on the condition that the number of lines 
+in each of .py files is >= 10 lines or not.
+
+Answer 2:
+
+change file names: 
+for f in *.txt do mv "$f" "new_${f}"
+
+delete .bak files:
+rm -rf *.bak
+
+rename .py files:
+for x in *.py
+do c =`cat $x|wc -l`
+if test $c -e 10 then mv "$x" "short_${x}"
+else  "$x" "long_${x}"
